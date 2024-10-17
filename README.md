@@ -1,20 +1,21 @@
-# User CRUD App
+# Base Mine APP WebUI
 
-This is a React application for managing users with CRUD operations. It uses Redux for state management, Ant Design for UI components, Axios for API calls, and TypeScript for type safety.
+This is a User CRUD application built with React, Redux, and TypeScript. The application allows you to add, edit, and delete users. It uses Docker for containerization and `env-cmd` for managing environment variables.
 
-## Installation
-
-### Prerequisites
+## Prerequisites
 
 - Node.js (>= 14.x)
-- npm (>= 6.x)
+- Docker
+- Docker Compose
 
-### Steps
+## Getting Started
+
+### Installation
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/user-crud-app.git
-    cd user-crud-app
+    git clone https://github.com/samusfree/mine-base-app-webui
+    cd mine-base-app-webui
     ```
 
 2. Install dependencies:
@@ -22,19 +23,35 @@ This is a React application for managing users with CRUD operations. It uses Red
     npm install
     ```
 
-3. Start the development server:
+### Running the Application
+
+#### Using npm
+
+1. Start the development server:
     ```bash
     npm start
     ```
 
-4. Run tests:
+2. Open your browser and navigate to `http://localhost:3000`.
+
+#### Using Docker
+
+1. Build the Docker image:
     ```bash
-    npm test
+    docker-compose build
     ```
 
-## Environment Variables
+2. Run the Docker container:
+    ```bash
+    docker-compose up
+    ```
 
-Create a `.env` file in the root directory with the following content:
+3. Open your browser and navigate to `http://localhost:80`.
 
+### Environment Variables
+
+This project uses `env-cmd` to manage environment variables. You can create different `.env` files for different environments.
+
+#### .env.local
 ```plaintext
-REACT_APP_API_URL=http://127.0.0.1:5000/api/v1
+REACT_APP_API_URL=http://localhost:5000/api/v1
