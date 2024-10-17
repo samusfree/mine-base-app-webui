@@ -36,17 +36,41 @@ This is a User CRUD application built with React, Redux, and TypeScript. The app
 
 #### Using Docker
 
-1. Build the Docker image:
-    ```bash
-    docker-compose build
-    ```
+### Building the Docker Image
 
-2. Run the Docker container:
-    ```bash
-    docker-compose up
-    ```
+To build the Docker image for the application, use:
 
-3. Open your browser and navigate to `http://localhost:80`.
+```sh
+docker build -t mine-base-app-webui:latest \
+--build-arg build_env='your_env_for_example_dev_qa_prd' \
+--build-arg REACT_APP_PUBLIC_URL='url_where_will_run_the_frontend' \
+--build-arg REACT_APP_API_URL='url_api_that_frontend_will_consume' .
+```
+
+for example to run on local use: 
+```sh
+docker build -t mine-base-app-webui:latest \
+--build-arg build_env='dev' \
+--build-arg REACT_APP_PUBLIC_URL='http://localhost' \
+--build-arg REACT_APP_API_URL='http://localhost:5000/api/v1/' .
+```
+
+### Running the Docker Container
+
+To run the Docker container, use:
+
+```sh
+docker run -d --name mine-base-app-webui-local -p 80:80 mine-base-app-webui:latest
+```
+
+### Local Docker compose
+
+To run on local with docker-compose, use:
+```bash
+docker compose up -d
+```
+
+3. Open your browser and navigate to `http://localhost`.
 
 ### Environment Variables
 

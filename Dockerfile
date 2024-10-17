@@ -3,6 +3,12 @@ FROM node:20-alpine AS build
 
 #Define the build environment
 ARG build_env
+ARG REACT_APP_PUBLIC_URL
+ARG REACT_APP_API_URL
+
+# Set environment variables
+ENV REACT_APP_PUBLIC_URL=$REACT_APP_PUBLIC_URL
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
 
 # Set the working directory
 WORKDIR /app
