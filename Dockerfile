@@ -20,7 +20,7 @@ COPY . .
 RUN npm run build:$build_env
 
 # Use an official Nginx image to serve the built app
-FROM nginx:alpine
+FROM nginx:1.27.2-alpine
 
 # Copy the built app from the previous stage
 COPY --from=build /app/build /usr/share/nginx/html
