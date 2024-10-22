@@ -1,32 +1,14 @@
-import React, { useState } from "react";
-import { Provider } from "react-redux";
-import { Layout, Typography } from "antd";
-import { UserForm, UserList } from "./users";
-import store from "./users/store/store";
-import { User } from "./users/models/user";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './App.css';
+import UserRoutes from './users/routes/UserRoutes';
 
-const { Header, Content } = Layout;
-const { Title } = Typography;
-
-const App: React.FC = () => {
-  const [editingUser, setEditingUser] = useState<User | null>(null);
-
+function App() {
   return (
-    <Provider store={store}>
-      <Layout>
-        <Header>
-          <Title style={{ color: "white" }}>User CRUD</Title>
-        </Header>
-        <Content style={{ padding: "20px" }}>
-          <UserForm
-            editingUser={editingUser}
-            setEditingUser={(user) => setEditingUser(user)}
-          />
-          <UserList setEditingUser={setEditingUser} />
-        </Content>
-      </Layout>
-    </Provider>
+    <div className="App">
+      <UserRoutes />
+    </div>
   );
-};
+}
 
 export default App;
